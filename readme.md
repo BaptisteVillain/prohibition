@@ -1,4 +1,4 @@
-# PROHIBITIN #
+# PROHIBITION #
 
 **Intensive week  T3**
 

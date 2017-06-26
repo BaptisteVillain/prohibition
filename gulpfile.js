@@ -7,6 +7,7 @@ const sourcemaps   = require('gulp-sourcemaps')
 const autoprefixer = require('gulp-autoprefixer')
 const rename       = require('gulp-rename')
 const babel        = require('gulp-babel')
+const concat        = require('gulp-concat')
 
 let config = {
   'src' : 'src/',
@@ -30,17 +31,15 @@ gulp.task('css', function () {
 })
 
 gulp.task('js', function() {
-  return gulp.src(config.src + 'js/*.js')
+  return gulp.src(config.src + 'js/**')
     .pipe(sourcemaps.init())
     .pipe(plumber({errorHandler: notify.onError("JS Error: <%= error.message %>")}))
     .pipe(babel({
       presets: ['es2015']
     }))
+    .pipe(concat('main.min.js'))
     .pipe(uglify())
     .pipe(sourcemaps.write())
-    .pipe(rename(function (path) {
-      path.basename += ".min"
-    }))
     .pipe(gulp.dest(config.dist + 'js'))
 })
 
