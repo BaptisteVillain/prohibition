@@ -26,7 +26,9 @@ body,html
     display: flex
     flex-direction: column
     background: red
-    transform: translateY(-100vh)
+    transition: transform .65s ease-in-out    
+    &.scrolled
+      transform: translateY(-100vh)
     &--row
       width: auto
       display: flex
