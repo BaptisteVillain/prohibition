@@ -1,6 +1,6 @@
-# PARTIEL T3 #
+# PROHIBITIN #
 
-**Baptiste VILLAIN**
+**Intensive week  T3**
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa voluptate explicabo eligendi.
 
@@ -12,5 +12,4 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa voluptate explic
 > - npm install
 > - composer install
 > - path/to/web in htaccess
-> - ?? install db ??
 > - Enjoy !
