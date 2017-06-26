@@ -1,5 +1,37 @@
 {% extends "partials/base.twig" %}
 
 {% block content %}
-  <h1>HOME</h1>  
+
+  <div class="container--section container--section-landing">
+    LANDING
+  </div>
+  <div class="container--section container--section-context">
+    CONTEXT
+  </div>
+  <div class="container--section container--section-split">
+    SPLIT
+  </div>
+
+  <div class="container--story">
+    <div class="container--story--row container--story--row-good">
+      <div class="container--story--section">ROW 1</div>
+      <div class="container--story--section">ROW 2</div>
+      <div class="container--story--section">ROW 3</div>
+      <div class="container--story--section">ROW 4</div>
+      <div class="container--story--section">ROW 5</div>
+    </div>
+    <div class="container--story--row container--story--row-bad">
+      <div class="container--story--section">ROW 2 1</div>
+      <div class="container--story--section">ROW 2 2</div>
+      <div class="container--story--section">ROW 2 3</div>
+      <div class="container--story--section">ROW 2 3</div>
+      <div class="container--story--section">ROW 2 3</div>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block fixed %}
+  <a href="#" class="prev">previous</a>
+  <a href="#" class="next">next</a>
 {% endblock %}

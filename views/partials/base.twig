@@ -7,9 +7,13 @@
 </head>
 <body>
 
-  {% block content %}
+  <div class="container">
+    {% block content %}  {% endblock %}
+  </div>
 
-  {% endblock %}
+  <div class="fixed">
+    {% block fixed %}  {% endblock %}
+  </div>
 
 <script src="{{ global.request.basepath }}/assets/js/main.min.js"></script>
 </body>
