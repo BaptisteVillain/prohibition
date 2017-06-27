@@ -23,7 +23,6 @@ body,html
     width: 100vw
     height: 100vh
     flex-shrink: 0
-    border: 3px solid red    
   &--story
     width: auto
     height: 100vh
@@ -43,7 +42,6 @@ body,html
       height: 100vh
       background: tomato
       flex-shrink: 0
-      border: 3px solid red
 
 .fixed
   position: fixed
@@ -56,10 +54,11 @@ body,html
     color: red
     margin: 50px
     pointer-events: auto
+    transition: all .65s ease
   &.hide
 
-    &-vertical-control
-      transform: translateX(-100px)
+    .fixed-vertical-control
+      transform: translateY(-100px)
 
-    .timeline
+    .timeline-hide
       transform: translateY(100px)
