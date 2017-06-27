@@ -1,4 +1,4 @@
-let test = [[11, 1], [12, 2], [13, 3]]
+let test = [[11, 1], [12, 7], [13, 3], [17, 5], [22, 1], [78, 6], [89, 3], [90, 8]]
 
 class Graph {
   constructor(parent, array, type) {
@@ -38,21 +38,49 @@ class Graph {
     this.div.setAttribute("height", "100%")
     this.div.setAttribute("class", "graph")
 
+    let width = parent.offsetWidth / array.length
+    let adjust = width / 2
+
     switch (type) {
       case 1:
-
-        let width = parent.offsetWidth / array.length
-        let adjust = width / 2
         for (let i = 0; i < array.length; i++) {
           let rect = document.createElementNS("http://www.w3.org/2000/svg", "rect")
           rect.style.transform = "translate(" + ((i * width) + adjust) + "px, 0)"
+          rect.setAttribute("fill", "blue")
           rect.setAttribute("height", (array[i][1] / Y.max) * parent.offsetHeight)
           rect.setAttribute("width", 2)
-          rect.setAttribute("y", parent.offsetHeight - ((array[i][1] / Y.max) * parent.offsetHeight))
+          rect.setAttribute("y", parent.offsetHeight - ((array[i][1] / Y.max) * parent.offsetHeight * 0.8))
           this.div.appendChild(rect)
         }
         break
       case 2:
+        let polyline = document.createElementNS("http://www.w3.org/2000/svg", "polyline")
+        polyline.setAttribute("fill", "none")
+        polyline.setAttribute("stroke", "blue")
+        polyline.setAttribute("stroke-width", "2")
+
+        let g = document.createElementNS("http://www.w3.org/2000/svg", "g")
+
+        let string = new String()
+
+        for (let i = 0; i < array.length; i++) {
+          string += ((i * width) + adjust)
+          string += ","
+          string += (parent.offsetHeight - ((array[i][1] / Y.max) * parent.offsetHeight * 0.8))
+          string += " "
+
+          let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle")
+          circle.setAttribute("cx", ((i * width) + adjust))
+          circle.setAttribute("cy", (parent.offsetHeight - ((array[i][1] / Y.max) * parent.offsetHeight * 0.8)))
+          circle.setAttribute("r", "4")
+
+          g.appendChild(circle)
+        }
+
+        polyline.setAttribute("points", string)
+
+        this.div.appendChild(g)
+        this.div.appendChild(polyline)
         break
     }
 
@@ -60,4 +88,4 @@ class Graph {
   }
 }
 
-//const graph_test = new Graph(document.querySelector(".container-graph"), test, 1)
+//const graph_test = new Graph(document.querySelector(".container-graph"), test, 2)
