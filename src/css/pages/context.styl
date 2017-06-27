@@ -1,0 +1,52 @@
+.container--section-context
+  position relative
+  text-align center
+  &::before,
+  &::after
+    z-index -1
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 100%
+  &::before
+    background url("../img/fumée.jpg") no-repeat
+    background-size cover
+  &::after
+    background rgba(0, 0, 0, 0.4)
+  .title
+    font-weight 800
+    font-family Raleway
+    font-size 36pt
+    margin-top 25vh
+    margin-bottom 0
+  .description
+    width 50vw
+    margin 0 auto
+    font-size 12pt
+    letter-spacing 1pt
+    margin-top 80px
+  .next
+    font-size 18pt
+    width 50px
+    height 50px
+    margin-top 70px
+    border 2px solid #fff
+    transform-origin center
+    transform rotate(45deg)
+    position relative
+    &::after
+      content "!"
+      display block
+      transform-origin center
+      transform rotate(-45deg)
+    &::before
+      display block
+      top -2px
+      left 47px
+      position absolute
+      width calc(50vw - 30px)
+      border 1px solid #fff
+      transform-origin left
+      transform rotate(-45deg)
+      
