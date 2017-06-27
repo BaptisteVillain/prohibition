@@ -2,52 +2,113 @@
 
 {% block content %}
 
-  <div class="container--section container--section-landing">
+  <div class="container--section container--section-landing hide-timeline">
     LANDING
+    <button class="next">Discover blalbla</button>
   </div>
-  <div class="container--section container--section-context">
+
+  <div class="container--section container--section-context hide-timeline">
     CONTEXT
+    <button class="next">Discover blalbla</button>
   </div>
-  <div class="container--section container--section-split">
+
+  <div class="container--section container--section-split hide-timeline">
     SPLIT
+    <button class="next">Discover blalbla</button>    
   </div>
 
   <div class="container--story">
 
     <div class="container--story--row container--story--row-civil">
+      
+      {#CHAPITRE 1#}
       <div class="container--story--section">
-        <a href="" class="section-control-vertical">scroll</a>
+        {% include 'pages/civil/chapter-1/1-1.twig' %}
       </div>
       <div class="container--story--section">
-        <a href="" class="section-control-vertical">scroll</a>
+        {% include 'pages/civil/chapter-1/1-2.twig' %}        
       </div>
       <div class="container--story--section">
-        <a href="" class="section-control-vertical">scroll</a>
+        {% include 'pages/civil/chapter-1/1-3.twig' %}    
       </div>
       <div class="container--story--section">
-        <a href="" class="section-control-vertical">scroll</a>
+        {% include 'pages/civil/chapter-1/1-4.twig' %}        
+      </div>
+
+      {#CHAPITRE 2#}      
+      <div class="container--story--section">
+        {% include 'pages/civil/chapter-2/2-1.twig' %}
       </div>
       <div class="container--story--section">
-        <a href="" class="section-control-vertical">scroll</a>
+        {% include 'pages/civil/chapter-2/2-2.twig' %}        
       </div>
+      <div class="container--story--section">
+        {% include 'pages/civil/chapter-2/2-3.twig' %}    
+      </div>
+      <div class="container--story--section">
+        {% include 'pages/civil/chapter-2/2-4.twig' %}        
+      </div>
+
+      {#CHAPITRE 3#}      
+      <div class="container--story--section">
+        {% include 'pages/civil/chapter-3/3-1.twig' %}
+      </div>
+      <div class="container--story--section">
+        {% include 'pages/civil/chapter-3/3-2.twig' %}        
+      </div>
+      <div class="container--story--section">
+        {% include 'pages/civil/chapter-3/3-3.twig' %}    
+      </div>
+      <div class="container--story--section">
+        {% include 'pages/civil/chapter-3/3-4.twig' %}        
+      </div>
+
     </div>
 
     <div class="container--story--row container--story--row-mafia">
+      
+       {#CHAPITRE 1#}
       <div class="container--story--section">
-        <a href="" class="section-control-vertical">scroll</a>
+        {% include 'pages/mafia/chapter-1/1-1.twig' %}
       </div>
       <div class="container--story--section">
-        <a href="" class="section-control-vertical">scroll</a>
+        {% include 'pages/mafia/chapter-1/1-2.twig' %}        
       </div>
       <div class="container--story--section">
-        <a href="" class="section-control-vertical">scroll</a>
+        {% include 'pages/mafia/chapter-1/1-3.twig' %}    
       </div>
       <div class="container--story--section">
-        <a href="" class="section-control-vertical">scroll</a>
+        {% include 'pages/mafia/chapter-1/1-4.twig' %}        
+      </div>
+
+      {#CHAPITRE 2#}      
+      <div class="container--story--section">
+        {% include 'pages/mafia/chapter-2/2-1.twig' %}
       </div>
       <div class="container--story--section">
-        <a href="" class="section-control-vertical">scroll</a>
+        {% include 'pages/mafia/chapter-2/2-2.twig' %}        
       </div>
+      <div class="container--story--section">
+        {% include 'pages/mafia/chapter-2/2-3.twig' %}    
+      </div>
+      <div class="container--story--section">
+        {% include 'pages/mafia/chapter-2/2-4.twig' %}        
+      </div>
+
+      {#CHAPITRE 3#}      
+      <div class="container--story--section">
+        {% include 'pages/mafia/chapter-3/3-1.twig' %}
+      </div>
+      <div class="container--story--section">
+        {% include 'pages/mafia/chapter-3/3-2.twig' %}        
+      </div>
+      <div class="container--story--section">
+        {% include 'pages/mafia/chapter-3/3-3.twig' %}    
+      </div>
+      <div class="container--story--section">
+        {% include 'pages/mafia/chapter-3/3-4.twig' %}        
+      </div>
+      
     </div>
 
   </div>
@@ -55,5 +116,7 @@
 {% endblock %}
 
 {% block fixed %}
+
   {% include 'partials/fixed.twig' %}
+
 {% endblock %}

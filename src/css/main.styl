@@ -2,6 +2,10 @@ body,html
   width: 100vw
   height: 100vh
   overflow: hidden
+  background: $black
+  color: $white
+  font-family: 'Open Sans', sans-serif
+  font-size: $font-size
 
 *, *::after, *::before
   box-sizing: border-box
@@ -18,14 +22,13 @@ body,html
   &--section
     width: 100vw
     height: 100vh
-    background: tomato
     flex-shrink: 0
+    border: 3px solid red    
   &--story
     width: auto
     height: 100vh
     display: flex
     flex-direction: column
-    background: red
     transition: transform .65s ease-in-out    
     &.scrolled
       transform: translateY(-100vh)
@@ -40,10 +43,23 @@ body,html
       height: 100vh
       background: tomato
       flex-shrink: 0
+      border: 3px solid red
 
 .fixed
   position: fixed
-  top: 50px
-  left: 50px
-  a
-    display: block
+  width: 100vw
+  height: 100vh
+  top: 0
+  left: 0
+  pointer-events: none
+  &-vertical-control
+    color: red
+    margin: 50px
+    pointer-events: auto
+  &.hide
+
+    &-vertical-control
+      transform: translateX(-100px)
+
+    .timeline
+      transform: translateY(100px)

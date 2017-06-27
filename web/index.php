@@ -17,7 +17,7 @@ require_once __DIR__.'/../src/php/services.php';
 
 // Create routes
 $app->before(function() use ($app){
-  $app['twig']->addGlobal('title', 'Partiel T3');
+  $app['twig']->addGlobal('title', 'Prohibition');
 });
 
 
