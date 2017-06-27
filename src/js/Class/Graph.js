@@ -1,0 +1,63 @@
+let test = [[11, 1], [12, 2], [13, 3]]
+
+class Graph {
+  constructor(parent, array, type) {
+    this.array = array
+    this.parent = parent
+    this.type = type
+
+    this.findMaxMin(this.array)
+
+    this.draw(this.parent, this.array, this.type, this.X, this.Y)
+  }
+
+  findMaxMin(array) {
+    this.X = {
+      max: 0,
+      min: null
+    }
+    this.Y = {
+      max: 0,
+      min: null
+    }
+    for (let i = 0; i < array.length; i++) {
+      if (this.X.min === null) this.X.min = array[i][0]
+      if (this.Y.min === null) this.X.min = array[i][1]
+      if (array[i][0] <= this.X.min) this.X.min = array[i][0]
+      if (array[i][0] >= this.X.max) this.X.max = array[i][0]
+      if (array[i][1] <= this.Y.min) this.Y.min = array[i][1]
+      if (array[i][1] >= this.Y.max) this.Y.max = array[i][1]
+    }
+  }
+
+  draw(parent, array, type, X, Y) {
+
+    this.div = document.createElementNS("http://www.w3.org/2000/svg", "svg")
+    this.div.setAttribute("xmlns", "http://www.w3.org/2000/svg")
+    this.div.setAttribute("width", "100%")
+    this.div.setAttribute("height", "100%")
+    this.div.setAttribute("class", "graph")
+
+    switch (type) {
+      case 1:
+
+        let width = parent.offsetWidth / array.length
+        let adjust = width / 2
+        for (let i = 0; i < array.length; i++) {
+          let rect = document.createElementNS("http://www.w3.org/2000/svg", "rect")
+          rect.style.transform = "translate(" + ((i * width) + adjust) + "px, 0)"
+          rect.setAttribute("height", (array[i][1] / Y.max) * parent.offsetHeight)
+          rect.setAttribute("width", 2)
+          rect.setAttribute("y", parent.offsetHeight - ((array[i][1] / Y.max) * parent.offsetHeight))
+          this.div.appendChild(rect)
+        }
+        break
+      case 2:
+        break
+    }
+
+    parent.appendChild(this.div)
+  }
+}
+
+//const graph_test = new Graph(document.querySelector(".container-graph"), test, 1)
