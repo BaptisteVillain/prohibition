@@ -25,6 +25,8 @@ class Framework{
     this.buttons_sections = document.querySelectorAll('.timeline--container--pin')
     this.previous_button  = undefined
 
+    this.button_split     = document.querySelector('.mafia-scroll')
+
     this.buttons_prev.forEach(function(button) {
       button.addEventListener('click', (e) => {
         e.preventDefault()    
@@ -100,6 +102,7 @@ class Framework{
       })
     }, this)
 
+    
     const that = this
     this.buttons_sections.forEach(function(button) {
       button.addEventListener('click', function(e){
@@ -117,6 +120,12 @@ class Framework{
         that.select()
       })
     }, this)
+
+    this.button_split.addEventListener('click', () => {
+      this.container_story.style.transition = 'none'
+      this.container_story.classList.add('scrolled')
+      this.container_story.style.transition = 'transform .65s ease-in-out'     
+    })
 
 
   }
