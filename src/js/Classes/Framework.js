@@ -7,6 +7,7 @@ class Framework{
     this.buttons_next     = document.querySelectorAll('.next')
     this.buttons_prev     = document.querySelectorAll('.prev')
     this.sections         = container.querySelectorAll('.container--section, .container--story--row-civil .container--story--section')
+    this.mafia_sections   = container.querySelectorAll('.container--story--row-mafia .container--story--section')
     this.button_scroll    = document.querySelector('.fixed-vertical-control')
     
     this.current_index    = 0
@@ -146,6 +147,12 @@ class Framework{
 
   select(){
     this.container.style.transform = 'translateX(-'+ (this.current_index * 100) +'vw)'
+    if(this.current_index > 3 && this.button_scroll.classList.contains('rotate')){
+      this.mafia_sections[this.current_index-3].classList.add('active')
+    }
+    else{
+      this.sections[this.current_index].classList.add('active')
+    }
     if(this.sections[this.current_index].classList.contains('hide-fixed')){
       this.fixed.classList.add('hide')
     }
