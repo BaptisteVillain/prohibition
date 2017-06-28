@@ -79,6 +79,8 @@ class Framework{
       e.preventDefault()
       this.button_scroll.classList.toggle('rotate')
       this.container_story.classList.toggle('scrolled')
+      this.mafia_sections[this.current_index-3].classList.add('active')
+      this.sections[this.current_index].classList.add('active')
     })
 
 
