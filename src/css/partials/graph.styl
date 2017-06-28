@@ -1,4 +1,27 @@
-.container-graph
-  background red
-  height 500px
-  width 500px
+.graph-container
+  margin auto
+  width 80vw
+  height 50vh
+  .graph-numbers
+    fill $white
+    font-size 12pt
+  .graph-chart
+    fill $yellow
+  .graph-value
+    text
+      fill $white
+      opacity 0
+    &:hover
+      text
+        opacity 1
+  polyline
+    fill none
+    stroke $green
+    stroke-width 2
+    pointer-events none
+  circle
+    fill $green
+  polyline, rect
+    transform scaleY(0)
+    transform-origin bottom
+    transition transform .5s

@@ -35,29 +35,51 @@ class Graph {
     this.div.setAttribute("width", "100%")
     this.div.setAttribute("height", "100%")
     this.div.setAttribute("class", "graph")
+    parent.appendChild(this.div)
 
     let width = parent.offsetWidth / array.length
     let adjust = width / 2
+    let graph = document.createElementNS("http://www.w3.org/2000/svg", "g")
+    graph.setAttribute("class", "graph-chart")
+    let numbers = document.createElementNS("http://www.w3.org/2000/svg", "g")
+    numbers.setAttribute("class", "graph-numbers")
 
     switch (type) {
       case 1:
         for (let i = 0; i < array.length; i++) {
+          let value = document.createElementNS("http://www.w3.org/2000/svg", "g")
+          value.setAttribute("class", "graph-value")
           let rect = document.createElementNS("http://www.w3.org/2000/svg", "rect")
-          rect.style.transform = "translate(" + ((i * width) + adjust) + "px, 0)"
-          rect.setAttribute("fill", "yellow")
-          rect.setAttribute("height", (array[i][1] / Y.max) * parent.offsetHeight)
-          rect.setAttribute("width", 10)
-          rect.setAttribute("y", parent.offsetHeight - ((array[i][1] / Y.max) * parent.offsetHeight * 0.8))
-          this.div.appendChild(rect)
+          rect.setAttribute("height", (array[i][1] / Y.max) * parent.offsetHeight * 0.8)
+          rect.setAttribute("width", 15)
+          rect.setAttribute("x", ((i * width) + adjust))
+          rect.setAttribute("y", (parent.offsetHeight - 40) - ((array[i][1] / Y.max) * parent.offsetHeight * 0.8))
+          value.appendChild(rect)
+          graph.appendChild(value)
+
+          let number = document.createElementNS("http://www.w3.org/2000/svg", "text")
+          number.setAttribute("text-anchor", "middle")
+          number.setAttribute("x", ((i * width) + 7.5 + adjust))
+          number.setAttribute("y", parent.offsetHeight - 10)
+          number.innerHTML = array[i][0]
+          numbers.appendChild(number)
+
+          document.createElementNS("http://www.w3.org/2000/svg", "g")
+          value.setAttribute("class", "graph-value")
+
+          let value_number = document.createElementNS("http://www.w3.org/2000/svg", "text")
+          value_number.setAttribute("text-anchor", "middle")
+          value_number.setAttribute("x", ((i * width) + 7.5 + adjust))
+          value_number.setAttribute("y", (parent.offsetHeight - 50) - ((array[i][1] / Y.max) * parent.offsetHeight * 0.8))
+          value_number.innerHTML = array[i][1]
+          value.appendChild(value_number)
         }
+        this.div.appendChild(graph)
+        this.div.appendChild(numbers)
         break
       case 2:
         let polyline = document.createElementNS("http://www.w3.org/2000/svg", "polyline")
-        polyline.setAttribute("fill", "none")
-        polyline.setAttribute("stroke", "blue")
-        polyline.setAttribute("stroke-width", "2")
-
-        let g = document.createElementNS("http://www.w3.org/2000/svg", "g")
+        let circles = document.createElementNS("http://www.w3.org/2000/svg", "g")
 
         let string = new String()
 
@@ -67,21 +89,37 @@ class Graph {
           string += (parent.offsetHeight - ((array[i][1] / Y.max) * parent.offsetHeight * 0.8))
           string += " "
 
+          let value = document.createElementNS("http://www.w3.org/2000/svg", "g")
+          value.setAttribute("class", "graph-value")
+
           let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle")
           circle.setAttribute("cx", ((i * width) + adjust))
           circle.setAttribute("cy", (parent.offsetHeight - ((array[i][1] / Y.max) * parent.offsetHeight * 0.8)))
-          circle.setAttribute("r", "4")
+          circle.setAttribute("r", "5")
+          value.appendChild(circle)
+          circles.appendChild(value)
 
-          g.appendChild(circle)
+          let number = document.createElementNS("http://www.w3.org/2000/svg", "text")
+          number.setAttribute("text-anchor", "middle")
+          number.setAttribute("y", parent.offsetHeight - 10)
+          number.setAttribute("x", ((i * width) + adjust))
+          number.innerHTML = array[i][0]
+          numbers.appendChild(number)
+
+          let value_number = document.createElementNS("http://www.w3.org/2000/svg", "text")
+          value_number.setAttribute("text-anchor", "middle")
+          value_number.setAttribute("x", ((i * width) + adjust))
+          value_number.setAttribute("y", (parent.offsetHeight - 15 - ((array[i][1] / Y.max) * parent.offsetHeight * 0.8)))
+          value_number.innerHTML = array[i][1]
+          value.appendChild(value_number)
         }
 
         polyline.setAttribute("points", string)
 
-        this.div.appendChild(g)
+        this.div.appendChild(circles)
         this.div.appendChild(polyline)
+        this.div.appendChild(numbers)
         break
     }
-
-    parent.appendChild(this.div)
   }
 }
