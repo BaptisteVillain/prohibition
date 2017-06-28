@@ -1,0 +1,27 @@
+.container--story--row-civil
+  .section-2-4
+    position relative
+    text-align center
+    &::before,
+    &::after
+      z-index -1
+      position absolute
+      top 0
+      left 0
+      width 100%
+      height 100%
+    &::before
+      background url("../img/alcool.jpg") no-repeat
+      background-size cover
+    &::after
+      background rgba(0, 0, 0, 0.6)
+    polyline
+      stroke $green
+    circle
+      fill $green
+    &.active
+      polyline
+        stroke-dashoffset 0
+      circle
+        opacity 1
+        

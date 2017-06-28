@@ -87,7 +87,7 @@ class Graph {
         for (let i = 0; i < array.length; i++) {
           string += ((i * width) + adjust)
           string += ","
-          string += (parent.offsetHeight - ((array[i][1] / Y.max) * parent.offsetHeight * 0.8))
+          string += (parent.offsetHeight - 40) - ((array[i][1] / Y.max) * parent.offsetHeight * 0.8)
           string += " "
 
           let value = document.createElementNS("http://www.w3.org/2000/svg", "g")
@@ -95,7 +95,7 @@ class Graph {
 
           let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle")
           circle.setAttribute("cx", ((i * width) + adjust))
-          circle.setAttribute("cy", (parent.offsetHeight - ((array[i][1] / Y.max) * parent.offsetHeight * 0.8)))
+          circle.setAttribute("cy", (parent.offsetHeight - 40) - ((array[i][1] / Y.max) * parent.offsetHeight * 0.8))
           circle.setAttribute("r", "5")
           value.appendChild(circle)
           circles.appendChild(value)
@@ -110,12 +110,13 @@ class Graph {
           let value_number = document.createElementNS("http://www.w3.org/2000/svg", "text")
           value_number.setAttribute("text-anchor", "middle")
           value_number.setAttribute("x", ((i * width) + adjust))
-          value_number.setAttribute("y", (parent.offsetHeight - 15 - ((array[i][1] / Y.max) * parent.offsetHeight * 0.8)))
+          value_number.setAttribute("y", (parent.offsetHeight - 55) - ((array[i][1] / Y.max) * parent.offsetHeight * 0.8))
           value_number.innerHTML = array[i][1]
           value.appendChild(value_number)
         }
-
+        
         polyline.setAttribute("points", string)
+        
         let prevPos, totalLength = 0
         for (let i = 0; i < polyline.points.numberOfItems; i++) {
           let pos = polyline.points.getItem(i);
