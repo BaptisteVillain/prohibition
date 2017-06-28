@@ -137,7 +137,8 @@ body,html
       transform-origin center
       transform rotate(-45deg)
       color: $white
-      transition: all .8s ease      
+      transition: all .8s ease
+      animation: pitch .5s ease-in-out infinite alternate-reverse
     &::before
       display: block
       top -.5px
@@ -162,3 +163,9 @@ body,html
       transform: scaleX(0)
       transition: all 0.45s ease
       will-change: transform
+
+@keyframes pitch 
+  from
+    transform: rotate(-20deg)
+  to
+    transform: rotate(-70deg)
