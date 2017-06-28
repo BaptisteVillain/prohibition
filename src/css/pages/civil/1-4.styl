@@ -1,0 +1,59 @@
+.container--story--row-civil
+  .section-1-4
+    display flex
+    flex-direction column
+    justify-content center
+    &::before
+      background url('../img/1-4-civil.png') no-repeat
+      background-size cover
+    &::after
+      opacity .4
+    .story-button
+      position absolute
+      bottom 110px
+      right 200px
+    .content
+      align-self flex-end
+      &-text
+        font-size 10pt
+        overflow auto
+        width 35vw
+        height 80vh
+        background rgba(0, 0, 0, .7)
+        box-shadow 0 0 10px rgba(0,0,0,.4)
+        border-radius 2px
+        padding 40px
+        &-subtitle
+          font-family 'Raleway', sans-serif
+          font-size 18px
+          font-weight 800
+          text-transform uppercase
+          color $green
+        &-description
+          color $white
+          line-height: 1.5
+  .points
+    .point
+      position absolute
+      width 20px
+      height 20px
+      border 3px solid $green
+      border-radius 50%
+      display flex
+      justify-content center
+      align-items center
+      &.eliot
+        top 37%
+        left 6%
+      &.bill
+        top 65%
+        left 33%
+      &.lyle
+        top 35%
+        left 63%
+      &:hover
+        &::before
+          width 10px
+          height 10px
+          border-radius 50%
+          background $green
