@@ -116,6 +116,16 @@ class Graph {
         }
 
         polyline.setAttribute("points", string)
+        let prevPos, totalLength = 0
+        for (let i = 0; i < polyline.points.numberOfItems; i++) {
+          let pos = polyline.points.getItem(i);
+          if (i > 0) {
+            totalLength += Math.sqrt(Math.pow((pos.x - prevPos.x), 2) + Math.pow((pos.y - prevPos.y), 2))
+          }
+          prevPos = pos
+        }
+        polyline.setAttribute("stroke-dasharray", totalLength)
+        polyline.setAttribute("stroke-dashoffset", totalLength)
 
         this.div.appendChild(circles)
         this.div.appendChild(polyline)

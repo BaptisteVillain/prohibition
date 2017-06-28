@@ -19,6 +19,9 @@
       stroke $green
     circle
       fill $green
-    &:hover
-      polyline, .circles
-        transform scaleY(1)
+    &.active
+      polyline
+        stroke-dashoffset 0
+      circle
+        opacity 1
+        

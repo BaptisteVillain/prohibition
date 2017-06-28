@@ -3,21 +3,24 @@
   width 80vw
   height 50vh
   .graph-numbers
-    fill $white
     font-size 12pt
-  .graph-chart
   .graph-value
     text
-      fill $white
+      font-size 14pt
       opacity 0
     &:hover
       text
         opacity 1
+  polyline, rect, circle
+    transition all .5s
   polyline
     fill none
     stroke-width 2
     pointer-events none
-  polyline, rect, .circles
+  rect
     transform scaleY(0)
     transform-origin bottom
-    transition transform .5s
+  circle
+    opacity 0
+  text
+    fill $white
