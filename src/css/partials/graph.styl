@@ -6,7 +6,6 @@
     fill $white
     font-size 12pt
   .graph-chart
-    fill $yellow
   .graph-value
     text
       fill $white
@@ -16,12 +15,9 @@
         opacity 1
   polyline
     fill none
-    stroke $green
     stroke-width 2
     pointer-events none
-  circle
-    fill $green
-  polyline, rect
+  polyline, rect, .circles
     transform scaleY(0)
     transform-origin bottom
     transition transform .5s

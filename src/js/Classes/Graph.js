@@ -80,6 +80,7 @@ class Graph {
       case 2:
         let polyline = document.createElementNS("http://www.w3.org/2000/svg", "polyline")
         let circles = document.createElementNS("http://www.w3.org/2000/svg", "g")
+        circles.setAttribute("class", "circles")
 
         let string = new String()
 
