@@ -1,11 +1,11 @@
 body,html
   width: 100vw
   height: 100vh
-  overflow: hidden
+  // overflow: hidden
   background: $black
   color: $white
   font-family: 'Open Sans', sans-serif
-  font-size: $font-size
+  font-size: 12pt
   user-select: none
   cursor: default
 
@@ -56,6 +56,40 @@ body,html
   &-vertical-control
     pointer-events: auto
     transition: all .65s ease
+    width: 40px
+    height: 40px
+    margin: 30px
+    position: relative
+    pointer-events: none
+    svg
+      pointer-events: painted
+      transition: all .45s ease-in-out
+      path
+        fill: $green
+    .name
+      display: block
+      position: absolute
+      width: 50px
+      height: 20px
+      line-height: 20px
+      font-size: 10pt
+      text-transform: uppercase
+      top: calc(50% - 10px)
+      left: 30px
+      pointer-events: auto
+      opacity: 1
+      &:nth-child(2n)
+        opacity: 0
+    &:hover
+      svg
+        transform: rotate(-180deg)
+        path
+          fill: $yellow
+      .name
+        opacity: 0
+        &:nth-child(2n+1)
+          opacity: 1
+
 
   &.hide
 
@@ -64,3 +98,11 @@ body,html
 
     .timeline-hide
       transform: translateY(100px)
+
+
+
+.title
+  font-size: 36pt
+
+.subtitle
+  font-size: 13.5pt
