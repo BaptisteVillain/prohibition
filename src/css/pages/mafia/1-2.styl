@@ -1,2 +1,46 @@
 .section-1-2
   display: flex
+  flex-direction: row
+  align-items: center
+  justify-content: center
+  .story-button
+    position: absolute
+    bottom: 110px
+    right: 200px
+  .content
+    display: flex
+    flex-direction: row
+    &-image
+      width: 500px
+      height: 500px
+      background: url('../img/1-2-civil.jpg') no-repeat
+      background-size: cover
+    &-text
+      width: 500px
+      height: 310px
+      background: $white
+      box-shadow: 0 0 10px rgba(0,0,0,.4)
+      margin-left: -50px
+      margin-top: 95px
+      border-radius: 2px
+      padding: 40px
+      color: $black
+      &-subtitle
+        font-family: 'Raleway', sans-serif
+        font-size: 18px
+        font-weight: 800
+        text-transform: uppercase
+        color $green
+      &-description
+        color: $black
+        line-height: 1.5
+
+.container--story--row-mafia
+  .section-1-2
+    .content
+      &-image
+        background: url('../img/1-2-mafia.jpg') no-repeat
+        background-position: 40% 20%
+      &-text
+        &-subtitle
+          color $yellow
