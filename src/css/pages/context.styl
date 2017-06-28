@@ -12,6 +12,7 @@
   &::before
     background url("../img/fumée.jpg") no-repeat
     background-size cover
+    animation zoom 30s infinite alternate
   &::after
     background rgba(0, 0, 0, 0.4)
   .title
@@ -49,4 +50,13 @@
       border 1px solid #fff
       transform-origin left
       transform rotate(-45deg)
-      
+
+@keyframes zoom {
+  from {
+    transform scale(1)
+  }
+
+  to {
+    transform scale(1.2)
+  }
+}
