@@ -1,5 +1,3 @@
-let test = [[11, 1], [12, 7], [13, 3], [17, 5], [22, 1], [78, 6], [89, 3], [90, 8]]
-
 class Graph {
   constructor(parent, array, type) {
     this.array = array
@@ -46,9 +44,9 @@ class Graph {
         for (let i = 0; i < array.length; i++) {
           let rect = document.createElementNS("http://www.w3.org/2000/svg", "rect")
           rect.style.transform = "translate(" + ((i * width) + adjust) + "px, 0)"
-          rect.setAttribute("fill", "blue")
+          rect.setAttribute("fill", "yellow")
           rect.setAttribute("height", (array[i][1] / Y.max) * parent.offsetHeight)
-          rect.setAttribute("width", 2)
+          rect.setAttribute("width", 10)
           rect.setAttribute("y", parent.offsetHeight - ((array[i][1] / Y.max) * parent.offsetHeight * 0.8))
           this.div.appendChild(rect)
         }
@@ -87,5 +85,3 @@ class Graph {
     parent.appendChild(this.div)
   }
 }
-
-//const graph_test = new Graph(document.querySelector(".container-graph"), test, 2)
