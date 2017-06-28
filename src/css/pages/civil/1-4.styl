@@ -8,21 +8,25 @@
       background-size cover
     &::after
       opacity .4
+
     .story-button
       position absolute
       bottom 110px
       right 200px
+
     .content
       align-self flex-end
+      overflow: hidden
       &-text
-        font-size 10pt
+        font-size 16px
         overflow auto
         width 35vw
-        height 80vh
+        height 400px
         background rgba(0, 0, 0, .7)
         box-shadow 0 0 10px rgba(0,0,0,.4)
         border-radius 2px
         padding 40px
+        margin-bottom: 100px
         &-subtitle
           font-family 'Raleway', sans-serif
           font-size 18px
@@ -42,6 +46,7 @@
       display flex
       justify-content center
       align-items center
+      cursor: pointer
       &.eliot
         top 37%
         left 6%
@@ -50,10 +55,15 @@
         left 33%
       &.lyle
         top 35%
-        left 63%
-      &:hover
-        &::before
+        left 61%
+      &::before
           width 10px
           height 10px
           border-radius 50%
           background $green
+          transform: scale(0)
+          transition: transform .3s ease
+
+      &:hover, &:focus
+        &::before
+          transform: scale(1)
