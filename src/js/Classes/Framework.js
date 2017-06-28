@@ -125,6 +125,7 @@ class Framework{
     this.button_split.addEventListener('click', () => {
       this.container_story.style.transition = 'none'
       this.container_story.classList.add('scrolled')
+      this.button_scroll.classList.add('rotate')      
       this.container_story.style.transition = 'transform .65s ease-in-out'     
     })
 
