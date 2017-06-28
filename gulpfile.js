@@ -31,7 +31,10 @@ gulp.task('css', function () {
 })
 
 gulp.task('js', function() {
-  return gulp.src(config.src + 'js/**')
+  return gulp.src([
+    config.src + 'js/Classes/**',
+    config.src + 'js/**'
+  ])
     .pipe(sourcemaps.init())
     .pipe(plumber({errorHandler: notify.onError("JS Error: <%= error.message %>")}))
     .pipe(babel({
