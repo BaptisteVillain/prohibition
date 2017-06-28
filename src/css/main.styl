@@ -64,8 +64,9 @@ body,html
     svg
       pointer-events: painted
       transition: all .45s ease-in-out
+      transform: rotate(-180deg)          
       path
-        fill: $green
+        fill: $yellow
     .name
       display: block
       position: absolute
@@ -77,32 +78,24 @@ body,html
       top: calc(50% - 10px)
       left: 30px
       pointer-events: auto
-      opacity: 1
+      opacity: 0
+      transition: all .45s ease-in-out      
       &:nth-child(2n)
-        opacity: 0
-    &:hover
+        opacity: 1
+    &.rotate
       svg
-        transform: rotate(-180deg)
+        transform: rotate(0)
         path
-          fill: $yellow
+          fill: $green
       .name
-        opacity: 0
-        &:nth-child(2n+1)
-          opacity: 1
+        opacity: 1
+        &:nth-child(2n)
+          opacity: 0
 
 
   &.hide
-
     .fixed-vertical-control
       transform: translateY(-100px)
 
     .timeline-hide
       transform: translateY(100px)
-
-
-
-.title
-  font-size: 36pt
-
-.subtitle
-  font-size: 13.5pt

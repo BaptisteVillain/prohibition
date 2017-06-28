@@ -76,6 +76,7 @@ class Framework{
 
     this.button_scroll.addEventListener('click', (e) => {
       e.preventDefault()
+      this.button_scroll.classList.toggle('rotate')
       this.container_story.classList.toggle('scrolled')
     })
 
@@ -102,7 +103,7 @@ class Framework{
       })
     }, this)
 
-    
+
     const that = this
     this.buttons_sections.forEach(function(button) {
       button.addEventListener('click', function(e){
