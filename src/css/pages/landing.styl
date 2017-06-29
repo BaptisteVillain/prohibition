@@ -15,15 +15,21 @@
     background-position 0 20%
   &::after
     background rgba(0, 0, 0, 0.7)
-
+    
   video
-    width: 100vw
-    height: 100vh
-    background: $black
-    position: absolute
-    top: 0
-    left: 0
-    z-index: 1
+    background $black
+    position absolute
+    top 0
+    left 0
+    top 50% 
+    left 50%
+    transform translateX(-50%) translateY(-50%)
+    min-width 100vw 
+    min-height 100vh 
+    width auto 
+    height auto
+    z-index 1 
+    overflow hidden
   
   .generic-skip
     display: block
