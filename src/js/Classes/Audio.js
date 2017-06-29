@@ -4,6 +4,7 @@ class Music{
     this.buttons_play = document.querySelectorAll('.audio-listen')
     this.buttons_pause = document.querySelectorAll('.audio-mute')
 
+
     const that = this
     this.buttons_play.forEach(function(button) {
       button.addEventListener('click', function(){
@@ -24,8 +25,14 @@ class Music{
       })
     }, this);
 
+    this.audio.addEventListener('pause', () => {
+      that.buttons_pause.forEach(function(button) {
+          button.classList.add('hide')
+        },this)
+    })
+
   }
 
 }
 
-const listener = new Music()
+const music = new Music()

@@ -26,3 +26,30 @@ skip.addEventListener('click', () => {
   generic_animate.style.animation = '0'
   skip.classList.add('hide')
 })
+
+const buttons_play = document.querySelectorAll('.video-play')
+
+const video_civil = document.querySelector('video.video-civil')
+const video_mafia = document.querySelector('video.video-mafia')
+
+const skip_mafia = document.querySelector('.video-skip.mafia')
+const skip_civil = document.querySelector('.video-skip.civil')
+
+buttons_play.forEach(function(button) {
+  button.addEventListener('click', () => {
+    if(framework.button_scroll.classList.contains('rotate')){
+      video_mafia.play()
+    }
+    else{
+      video_civil.play()
+    }
+  })
+}, this);
+
+video_civil.addEventListener('pause', () => {
+  skip_civil.click()
+})
+
+video_mafia.addEventListener('pause', () => {
+  skip_mafia.click()
+})

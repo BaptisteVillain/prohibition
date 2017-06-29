@@ -81,6 +81,18 @@ class Framework{
       this.container_story.classList.toggle('scrolled')
       this.mafia_sections[this.current_index-3].classList.add('active')
       this.sections[this.current_index].classList.add('active')
+      if(this.current_index === 9){
+        if(this.button_scroll.classList.contains('rotate')){
+          console.log('GO MAFIA')
+          video_mafia.play()
+          video_civil.pause()
+        }
+        else{
+          console.log('GO CIVIL')
+          video_mafia.pause()
+          video_civil.play()
+        }
+      }
     })
 
 
@@ -161,8 +173,8 @@ class Framework{
     else{
       this.fixed.classList.remove('hide')      
     }
+    music.audio.pause()
   }
-
 }
 
 const framework = new Framework(document.querySelector('.container'), document.querySelector('.fixed'))
