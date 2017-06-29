@@ -32,26 +32,73 @@
     svg
       position: relative
       z-index: 1000
-      rect, path
-          pointer-events: all
-          transition: all .3s ease-in-out
-          fill: transparent    
+      pointer-events: none
+      rect, path, text
+        pointer-events: all
+        transition: all .3s ease-in-out
+        fill: transparent
+      text
+        fill: $white
       .neutral:hover
         rect
           fill: #0CE98B
         path
           fill: #0CE98B
-          stroke: darken(#0CE98B, 15%)          
+          stroke: darken(#0CE98B, 10%)          
 
       .outfit:hover
         rect
           fill: #EFC80B
         path
           fill: #EFC80B
-          stroke: darken(#EFC80B, 15%)
+          stroke: darken(#EFC80B, 10%)
       .northside:hover
         rect
           fill: #A957FF
         path
           fill: #A957FF
-          stroke: darken(#A957FF, 15%)
+          stroke: darken(#A957FF, 10%)
+
+  .icons
+    width: 500px
+    height: 500px
+    margin: auto
+    position: relative
+    display: flex
+    flex-direction: row
+    .icon
+      width: 90px
+      height: 90px
+      border-radius: 50%
+      margin: auto
+      border: 1px solid $green
+      transition: all .3s ease
+      background-position: center
+      background-repeat: no-repeat
+      background-size: 50%
+      &:hover
+        background-color: $green
+        .icon-title
+          opacity: 1
+      &:nth-child(1)
+        margin-bottom: 100px
+        background-image: url('../img/civil-icon-1.svg')
+      &:nth-child(2)
+        margin-top: 100px  
+        background-image: url('../img/civil-icon-2.png')        
+      &:nth-child(3)
+        margin-bottom: 100px
+        background-image: url('../img/civil-icon-3.png')        
+      .icon-title
+        display: block
+        width: 100px
+        height: 50px
+        line-height: 50px
+        text-align: center
+        position: absolute
+        top: 50%
+        left: calc(50% - 50px)
+        pointer-events: none
+        opacity: 0
+        transition: all 0.3s ease
+
