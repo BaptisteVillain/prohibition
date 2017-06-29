@@ -1,15 +1,16 @@
 class Graph {
-  constructor(parent, array, type) {
+  constructor(parent, array, type, correct = 0) {
     this.array = array
     this.parent = parent
     this.type = type
+    this.correct = correct
 
-    this.findMaxMin(this.array)
+    this.findMaxMin(this.array, this.correct)
 
     this.draw(this.parent, this.array, this.type, this.X, this.Y)
   }
 
-  findMaxMin(array) {
+  findMaxMin(array, correct) {
     this.X = {
       max: 0,
       min: null
@@ -20,11 +21,11 @@ class Graph {
     }
     for (let i = 0; i < array.length; i++) {
       if (this.X.min === null) this.X.min = array[i][0]
-      if (this.Y.min === null) this.X.min = array[i][1]
+      if (this.Y.min === null) this.Y.min = array[i][1]
       if (array[i][0] <= this.X.min) this.X.min = array[i][0]
       if (array[i][0] >= this.X.max) this.X.max = array[i][0]
-      if (array[i][1] <= this.Y.min) this.Y.min = array[i][1]
-      if (array[i][1] >= this.Y.max) this.Y.max = array[i][1]
+      if (array[i][1] + correct <= this.Y.min) this.Y.min = array[i][1] + correct
+      if (array[i][1] + correct >= this.Y.max) this.Y.max = array[i][1] + correct
     }
   }
 
@@ -50,10 +51,10 @@ class Graph {
           let value = document.createElementNS("http://www.w3.org/2000/svg", "g")
           value.setAttribute("class", "graph-value")
           let rect = document.createElementNS("http://www.w3.org/2000/svg", "rect")
-          rect.setAttribute("height", (array[i][1] / Y.max) * parent.offsetHeight * 0.8)
+          rect.setAttribute("height", ((array[i][1] + this.correct) / Y.max) * parent.offsetHeight * 0.8)
           rect.setAttribute("width", 15)
           rect.setAttribute("x", ((i * width) + adjust))
-          rect.setAttribute("y", (parent.offsetHeight - 40) - ((array[i][1] / Y.max) * parent.offsetHeight * 0.8))
+          rect.setAttribute("y", (parent.offsetHeight - 40) - (((array[i][1] + this.correct) / Y.max) * parent.offsetHeight * 0.8))
           value.appendChild(rect)
           graph.appendChild(value)
 
@@ -70,7 +71,7 @@ class Graph {
           let value_number = document.createElementNS("http://www.w3.org/2000/svg", "text")
           value_number.setAttribute("text-anchor", "middle")
           value_number.setAttribute("x", ((i * width) + 7.5 + adjust))
-          value_number.setAttribute("y", (parent.offsetHeight - 50) - ((array[i][1] / Y.max) * parent.offsetHeight * 0.8))
+          value_number.setAttribute("y", (parent.offsetHeight - 50) - (((array[i][1] + this.correct) / Y.max) * parent.offsetHeight * 0.8))
           value_number.innerHTML = array[i][1]
           value.appendChild(value_number)
         }
@@ -95,7 +96,7 @@ class Graph {
 
           let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle")
           circle.setAttribute("cx", ((i * width) + adjust))
-          circle.setAttribute("cy", (parent.offsetHeight - 40) - ((array[i][1] / Y.max) * parent.offsetHeight * 0.8))
+          circle.setAttribute("cy", (parent.offsetHeight - 40) - (((array[i][1] + this.correct) / Y.max) * parent.offsetHeight * 0.8))
           circle.setAttribute("r", "5")
           value.appendChild(circle)
           circles.appendChild(value)
@@ -110,13 +111,13 @@ class Graph {
           let value_number = document.createElementNS("http://www.w3.org/2000/svg", "text")
           value_number.setAttribute("text-anchor", "middle")
           value_number.setAttribute("x", ((i * width) + adjust))
-          value_number.setAttribute("y", (parent.offsetHeight - 55) - ((array[i][1] / Y.max) * parent.offsetHeight * 0.8))
+          value_number.setAttribute("y", (parent.offsetHeight - 55) - (((array[i][1] + this.correct) / Y.max) * parent.offsetHeight * 0.8))
           value_number.innerHTML = array[i][1]
           value.appendChild(value_number)
         }
-        
+
         polyline.setAttribute("points", string)
-        
+
         let prevPos, totalLength = 0
         for (let i = 0; i < polyline.points.numberOfItems; i++) {
           let pos = polyline.points.getItem(i);
