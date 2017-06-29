@@ -49,7 +49,6 @@ buttons_play.forEach(function(button) {
 }, this);
 
 video_civil.addEventListener('timeupdate', () => {
-  console.log('evnet')
   if(video_civil.currentTime === video_civil.duration){
     skip_civil.click()
   }
@@ -60,3 +59,8 @@ video_mafia.addEventListener('pause', () => {
     skip_mafia.click()
   }
 })
+
+const ambiant = new Audio
+ambiant.src = 'assets/audio/ambient.mp3'
+ambiant.volume = 0.04
+ambiant.play()
