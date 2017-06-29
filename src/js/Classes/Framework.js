@@ -83,16 +83,21 @@ class Framework{
       this.sections[this.current_index].classList.add('active')
       if(this.current_index === 9){
         if(this.button_scroll.classList.contains('rotate')){
-          console.log('GO MAFIA')
           video_mafia.play()
           video_civil.pause()
         }
         else{
-          console.log('GO CIVIL')
           video_mafia.pause()
           video_civil.play()
         }
       }
+
+      music.audio.pause()
+
+      let effect = new Audio
+      effect.src = 'assets/audio/scroll.mp3'
+      effect.volume = 0.1     
+      effect.play()
     })
 
 
@@ -178,6 +183,10 @@ class Framework{
       video_mafia.pause()
       video_civil.pause()
     }
+    let effect = new Audio
+    effect.src = 'assets/audio/next.mp3'
+    effect.volume = 0.3
+    effect.play()
   }
 }
 
