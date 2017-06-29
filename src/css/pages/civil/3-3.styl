@@ -1,0 +1,64 @@
+.container--story--row-civil
+  .section-3-3
+    display: flex
+    &::before
+      background-image: url('../img/section-civil-3-3.png')
+    .content
+      width: 500px
+      height: 500px
+      margin: auto
+      border-radius: 50%
+      border: 1px solid $green
+      position: relative
+      display: flex
+      &-animate
+        width: 500px
+        height: 500px
+        position: absolute
+        animation: rotation 10s ease infinite
+      &-community
+        width: 60px
+        height: 60px
+        background: $black
+        border-radius: 50%
+        position: absolute
+        border: 1px solid $green
+        &:nth-child(1)
+          top: -30px
+          left: calc(50% - 30px)
+          background: url('../img/poland-flag.png') center no-repeat
+          background-size: 170%
+        &:nth-child(2)
+          right: -30px
+          top: calc(50% - 30px)
+          background: url('../img/irland-flag.png') center no-repeat    
+          background-size: 200%
+              
+        &:nth-child(3)
+          bottom: -30px
+          left: calc(50% - 30px)
+          background: url('../img/italian-flag.svg') center no-repeat    
+          background-size: 150%
+                      
+        &:nth-child(4)
+          left: -30px
+          top: calc(50% - 30px)
+          background: url('../img/jew-flag.jpg') center no-repeat       
+          background-size: 100% 
+      
+      &-text
+        width: 300px
+        height: auto
+        margin: auto
+        line-height: 1.6
+
+@keyframes rotation {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(90deg); }
+  25% { transform: rotate(90deg); }
+  45% { transform: rotate(180deg); }
+  50% { transform: rotate(180deg); }
+  70% { transform: rotate(270deg); }
+  75% { transform: rotate(270deg); }
+  100% { transform: rotate(360deg); }
+}
