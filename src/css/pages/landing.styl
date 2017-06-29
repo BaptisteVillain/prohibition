@@ -66,12 +66,14 @@
   
   .content
     transform: translateY(-100vh)
-    animation: pop 2s 41.5s ease-in-out forwards
-    transition: all 2s ease-in-out
+    opacity 0
+    animation: pop .75s 41.5s ease-in-out forwards
+    transition: all .75s ease-in-out
     position: relative
     z-index: 100
     &.skipped
       animation: 0
+      opacity 1
       transform: translateY(0)
   
   .title
@@ -119,5 +121,7 @@
 @keyframes pop
   from
     transform: translateY(-100vh)
+    opacity 0
   to
     transform: translateY(0)
+    opacity 1
