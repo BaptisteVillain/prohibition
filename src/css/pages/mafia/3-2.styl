@@ -17,7 +17,6 @@
       justify-content: center
       align-items: center
       .animate
-        animation: fade_in 1s ease-in-out forwards
         opacity: 0        
       &:nth-child(2)
         background-image: url('../img/section-3-2-1.jpg')
@@ -49,6 +48,20 @@
         color: $yellow
       p
         line-height: 1.7
+.container--story--row-mafia
+  .section-3-2.active
+    .section-mafia-part
+      .animate
+        animation: fade_in 1s ease-in-out forwards
+      &:nth-child(2)
+        .animate
+          animation-delay: 1s
+      &:nth-child(3)
+        .animate
+          animation-delay: 1.3s
+      &:nth-child(4)
+        .animate
+          animation-delay: 1.6s        
 
 @keyframes fade_in
   from

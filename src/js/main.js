@@ -48,10 +48,15 @@ buttons_play.forEach(function(button) {
   })
 }, this);
 
-video_civil.addEventListener('pause', () => {
-  skip_civil.click()
+video_civil.addEventListener('timeupdate', () => {
+  console.log('evnet')
+  if(video_civil.currentTime === video_civil.duration){
+    skip_civil.click()
+  }
 })
 
 video_mafia.addEventListener('pause', () => {
-  skip_mafia.click()
+  if(video_mafia.currentTime === video_mafia.duration){
+    skip_mafia.click()
+  }
 })
