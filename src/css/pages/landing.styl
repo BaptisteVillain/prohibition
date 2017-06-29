@@ -15,18 +15,74 @@
     background-position 0 20%
   &::after
     background rgba(0, 0, 0, 0.7)
+
+  video
+    width: 100vw
+    height: 100vh
+    background: $black
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 1
+  
+  .generic-skip
+    display: block
+    position: absolute
+    z-index: 100
+    right: 30px
+    top: 30px
+    width: 60px
+    height: 30px
+    line-height: 16px
+    border: 1px solid $white
+    font-size: 16px
+    transition: all 0.45s ease
+    color: $white
+    &::before
+      position: absolute
+      z-index: -1
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      background: $white
+      transform-origin: 0 50%
+      transform: scaleX(0)
+      transition: all 0.45s ease      
+    &:hover
+      color: $black
+      &::before
+        transform: scaleX(1)
+    &.hide
+      transform: translateY(-100px)
+      pointer-events: none
+  
+  .content
+    transform: translateY(-100vh)
+    animation: pop 2s 41.5s ease-in-out forwards
+    transition: all 2s ease-in-out
+    position: relative
+    z-index: 100
+    &.skipped
+      animation: 0
+      transform: translateY(0)
+  
   .title
     font-weight 800
     font-family Raleway
     font-size 72pt
     margin-top 35vh
     margin-bottom 0
+    position: relative
+    z-index: 10
   .description
     font-size 16pt
     font-weight lighter
     letter-spacing 1pt
     margin-top 0
     color rgba(255, 255, 255, .8)
+    position: relative
+    z-index: 10
   .next
     font-weight 600
     margin-top 20px
@@ -52,3 +108,9 @@
       transform-origin: 0 50%
       transform: scaleX(0)
       transition: all 0.45s ease
+
+@keyframes pop
+  from
+    transform: translateY(-100vh)
+  to
+    transform: translateY(0)

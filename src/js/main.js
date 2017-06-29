@@ -9,3 +9,20 @@ new Graph(document.querySelector(".graph-civil-1"), brewery, 2)
 new Graph(document.querySelector(".graph-mafia-1"), liquor, 1)
 new Graph(document.querySelector(".graph-civil-2"), death, 2)
 new Graph(document.querySelector(".graph-mafia-2"), murder, 1)
+
+
+const generic         = document.querySelector('video.generic')
+const skip            = document.querySelector('.generic-skip')
+const generic_animate = document.querySelector('.landing-content')
+
+setTimeout(function() {
+  generic.muted = true
+  skip.classList.add('hide')  
+}, 43000);
+
+skip.addEventListener('click', () => {
+  generic.muted = true
+  generic_animate.classList.add('skipped')
+  generic_animate.style.animation = '0'
+  skip.classList.add('hide')
+})
