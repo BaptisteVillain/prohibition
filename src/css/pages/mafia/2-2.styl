@@ -1,0 +1,57 @@
+.container--story--row-mafia
+  .section-2-2
+    &::before
+      background-image: url('../img/st-valentines.jpg')
+    .subtitle
+      color: $yellow
+
+.container--story--row-civil
+  .section-2-2
+    .subtitle
+      color: $green
+
+.section-2-2
+  display: flex
+  flex-direction: row
+
+  .content
+    width: 400px
+    margin: auto 90px
+
+  .subtitle
+    text-transform: uppercase
+    font-family: 'Raleway', sans-serif
+    font-weight: 800
+  p
+    line-height: 2
+  
+  .gang-map
+    width: 700px
+    height: 700px
+    margin: auto 0
+    svg
+      position: relative
+      z-index: 1000
+      rect, path
+          pointer-events: all
+          transition: all .3s ease-in-out
+          fill: transparent    
+      .neutral:hover
+        rect
+          fill: #0CE98B
+        path
+          fill: #0CE98B
+          stroke: darken(#0CE98B, 15%)          
+
+      .outfit:hover
+        rect
+          fill: #EFC80B
+        path
+          fill: #EFC80B
+          stroke: darken(#EFC80B, 15%)
+      .northside:hover
+        rect
+          fill: #A957FF
+        path
+          fill: #A957FF
+          stroke: darken(#A957FF, 15%)
