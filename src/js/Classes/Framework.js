@@ -34,6 +34,15 @@ class Framework{
         if(this.current_index > 0){
           this.previous_index = this.current_index    
           this.current_index -= 1
+          this.current_chapter -= 1
+          this.current_section = 3
+          this.previous_section = 3
+          this.timeline.style.transform = 'translateX(-'+ (this.current_chapter * 100) +'vw)'
+          this.buttons_sections.forEach(function(element) {
+            element.classList.remove('active')
+          }, this);      
+          this.timelines_fill[this.current_chapter].style.transform = 'scaleX(.8)'
+          this.buttons_sections[(3 * this.current_chapter + this.current_section) - 1].classList.add('active')
           this.select()
         }
       })
@@ -158,6 +167,7 @@ class Framework{
     this.buttons_sections.forEach(function(element) {
           element.classList.remove('active')
     }, this);
+
     this.timelines_fill[this.current_chapter].style.transform = 'scaleX('+ (this.buttons_sections[3 * this.current_chapter].getBoundingClientRect().left / window.innerWidth) +')'
     this.buttons_sections[3 * this.current_chapter].classList.add('active')
 

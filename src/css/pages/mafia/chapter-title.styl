@@ -3,6 +3,9 @@
   flex-direction: column
   justify-content: center
   align-items: center
+  width: 100vw
+  height: 100vh
+  position: relative
   &::before
     background: url('../img/title-1.jpg') no-repeat
     background-size: cover
@@ -15,6 +18,22 @@
     font-weight: 800
     font-size: 18px
     text-transform: uppercase
+    &.prev
+      height: 30px
+      width: auto
+      position: absolute
+      z-index: 2000      
+      top: initial
+      bottom: 30px
+      display: flex
+      line-height: 30px
+      margin-left: -30px
+      svg
+        width: 30px
+        height: 30px
+        transform: scale(0.35) translateX(15px) 
+        path
+          fill: $white
 
   .title
     width: 100vw

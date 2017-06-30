@@ -1,5 +1,3 @@
-console.log('mdr')
-
 let liquor = [[1920, 1638], [1921, 4963], [1922, 4188], [1923, 4804], [1924, 5380], [1925, 7041], [1926, 14221], [1927, 5972], [1928, 4254], [1929, 3312]]
 let brewery = [[1890, 2011], [1900, 1852], [1910, 1448], [1920, 0], [1930, 0], [1940, 703], [1950, 496]]
 let death = [[1918, 2.7], [1920, 1.0], [1922, 2.6], [1924, 3.1], [1926, 3.9], [1928, 4.0], [1930, 3.5]]
@@ -63,5 +61,5 @@ video_mafia.addEventListener('pause', () => {
 const ambiant = new Audio
 ambiant.src = 'assets/audio/ambient.mp3'
 ambiant.loop = true
-ambiant.volume = 0.04
+ambiant.volume = 0.035
 ambiant.play()
