@@ -62,5 +62,6 @@ video_mafia.addEventListener('pause', () => {
 
 const ambiant = new Audio
 ambiant.src = 'assets/audio/ambient.mp3'
+ambiant.loop = true
 ambiant.volume = 0.04
 ambiant.play()
