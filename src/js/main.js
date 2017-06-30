@@ -15,11 +15,6 @@ const generic         = document.querySelector('video.generic')
 const skip            = document.querySelector('.generic-skip')
 const generic_animate = document.querySelector('.landing-content')
 
-setTimeout(function() {
-  generic.muted = true
-  skip.classList.add('hide')  
-}, 43000);
-
 skip.addEventListener('click', () => {
   generic.muted = true
   generic_animate.classList.add('skipped')
@@ -58,8 +53,21 @@ video_mafia.addEventListener('pause', () => {
   }
 })
 
-const ambiant = new Audio
-ambiant.src = 'assets/audio/ambient.mp3'
-ambiant.loop = true
-ambiant.volume = 0.035
-ambiant.play()
+window.addEventListener('load', () => {
+  generic.muted = false
+  document.querySelector('.loading-page').classList.add('hide')
+  setTimeout(function() {
+    generic.muted = true
+    skip.classList.add('hide')
+    
+  }, 43000);
+
+  generic.currentTime = 0
+  generic_animate.classList.add('animation')
+
+  const ambiant = new Audio
+  ambiant.src = 'assets/audio/ambient.mp3'
+  ambiant.loop = true
+  ambiant.volume = 0.035
+  ambiant.play()
+})

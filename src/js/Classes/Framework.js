@@ -189,6 +189,7 @@ class Framework{
       this.fixed.classList.remove('hide')      
     }
     music.audio.pause()
+    generic.pause()
     if(this.current_index != 9){
       video_mafia.pause()
       video_civil.pause()
