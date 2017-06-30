@@ -20,6 +20,8 @@ skip.addEventListener('click', () => {
   generic_animate.classList.add('skipped')
   generic_animate.style.animation = '0'
   skip.classList.add('hide')
+  timeoutX = false
+  timeoutY = false
 })
 
 const buttons_play = document.querySelectorAll('.video-play')
@@ -59,6 +61,8 @@ window.addEventListener('load', () => {
   setTimeout(function() {
     generic.muted = true
     skip.classList.add('hide')
+    timeoutX = false
+    timeoutY = false
     
   }, 43000);
 
@@ -70,4 +74,25 @@ window.addEventListener('load', () => {
   ambiant.loop = true
   ambiant.volume = 0.035
   ambiant.play()
+})
+
+let timeoutX = true
+let timeoutY = true
+
+window.addEventListener('wheel', (e) => {
+  console.log(e.deltaY)
+  if(!timeoutX && e.deltaX > 30 && framework.current_index != 2){
+    framework.buttons_next[0].click()
+    timeoutX = true
+    setTimeout(function() {
+      timeoutX = false
+    }, 1000);
+  }
+  if(!timeoutY && (e.deltaY > 30 || e.deltaY < -30) && framework.current_index > 2){
+    framework.button_scroll.click()
+    timeoutY = true
+    setTimeout(function() {
+      timeoutY = false
+    }, 1000);
+  }
 })
