@@ -1,12 +1,14 @@
 # PROHIBITION #
 
-**Intensive week  T3**
+**HETIC Intensive week  H2 T3**
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa voluptate explicabo eligendi.
 
-## FEATURES ##
-> - 
-> - 
+## TO DO ##
+> - Better sound management
+> - Better video management
+> - UI improve
+> - Better audio clips
+> - Better video clips
 
 ## INSTALLATION ##
 > - npm install
